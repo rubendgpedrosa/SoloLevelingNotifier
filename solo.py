@@ -18,7 +18,7 @@ retitle = re.compile("<title[^>]*>(.*?)</title>", re.IGNORECASE | re.DOTALL)
 buffer = ""
 
 #Open File and get the NUMBAH
-ChapterFile = open("chapter.txt", "r+")
+ChapterFile = open("/PATH/TO/chapter.txt", "r+")
 PreChapterFile = ChapterFile.read().split()
 ChapterNumber = int(PreChapterFile[0])
 
@@ -38,7 +38,7 @@ with closing(requests.get(url, stream=True)) as res:
         print(url)
         if match:
             urltext = htmlp.unescape(match.group(1))
-            if search("404", str(requests.get(url, stream=True))):
+            if search("200", str(requests.get(url, stream=True))) == None:
                 print("NOT UPDATED")
             else:
                 #Punk ass message telling them to pay!
