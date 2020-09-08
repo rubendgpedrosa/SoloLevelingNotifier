@@ -10,7 +10,7 @@ url = "URL"+str(ChapterNumber)
 response = requests.get(url)
 i = 1
 while i:
-    if ("This is an Upcoming Post." in response.text) or ("Oops! That page can’t be found." in response.text):
+    if ("This is an Upcoming Post." in response.text) or ("Oops! That page can" in response.text):
         print('NOT UPDATED YET')
     else:
         #Punk ass message telling them to pay!
